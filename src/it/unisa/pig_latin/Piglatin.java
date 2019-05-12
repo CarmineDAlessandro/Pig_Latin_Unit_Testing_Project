@@ -64,11 +64,13 @@ public class Piglatin {
 		//Split the phrase into an array of words to perform further analysis
 		String[] words = phrase.split("\\s+");
 		String newPhrase = "";
-		boolean isUppercase = false;
-		boolean isTitlecase = false;
+		boolean isUppercase;
+		boolean isTitlecase;
 		
 		
 		for(int i = 0; i < words.length; i ++) {
+			isUppercase = false;
+			isTitlecase = false;
 			
 			//Analysis
 			isTitlecase = titlecaseAnalysis(words[i]);
