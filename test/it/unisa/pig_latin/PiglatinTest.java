@@ -133,10 +133,17 @@ public class PiglatinTest {
 	}
 	
 	@Test
-	public void testTranslateSingleLetterSentence() throws Exception {
+	public void testTranslateSingleVowelSentence() throws Exception {
 		Piglatin piglatin = new Piglatin("I");
 		String translation = piglatin.translate();
 		assertEquals("IAY", translation);
+	}
+	
+	@Test
+	public void testTranslateSingleConsonantSentence() throws Exception {
+		Piglatin piglatin = new Piglatin("D");
+		String translation = piglatin.translate();
+		assertEquals("DAY", translation);
 	}
 	
 	@Test
@@ -152,7 +159,7 @@ public class PiglatinTest {
 	 * */
 	
 	@Test
-	public void testHandingEmptyConsonantCluster() throws Exception {
+	public void testHandingOneLetterConsonantCluster() throws Exception {
 		Piglatin piglatin = new Piglatin("ramingo cho");
 		String translation = piglatin.translate();
 		assertEquals("amingoray ochay", translation);
@@ -190,10 +197,17 @@ public class PiglatinTest {
 	 */
 
 	@Test
-	public void testUppercaseSentence() throws Exception {
+	public void testUppercaseWord() throws Exception {
 		Piglatin piglatin = new Piglatin("SCREAM");
 		String translation = piglatin.translate();
 		assertEquals("EAMSCRAY", translation);
+	}
+	
+	@Test
+	public void testUppercaseWordInSentence() throws Exception {
+		Piglatin piglatin = new Piglatin("ice CREAM is TASTY");
+		String translation = piglatin.translate();
+		assertEquals("iceay EAMCRAY isay ASTYTAY", translation);
 	}
 	
 	/*
@@ -202,10 +216,17 @@ public class PiglatinTest {
 	 * */
 	
 	@Test
-	public void testTitlecaseSentence() throws Exception {
+	public void testTitlecaseWord() throws Exception {
 		Piglatin piglatin = new Piglatin("Robert");
 		String translation = piglatin.translate();
 		assertEquals("Obertray", translation);
+	}
+	
+	@Test
+	public void testTitlecaseWordInSentence() throws Exception {
+		Piglatin piglatin = new Piglatin("I am Robert D J");
+		String translation = piglatin.translate();
+		assertEquals("IAY amay Obertray DAY JAY", translation);
 	}
 	
 	/*
